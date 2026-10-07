@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <!-- Opportunity List -->
+    <record id="view_opportunity_list" model="ir.ui.view">
+        <field name="name">my.crm.opportunity.list</field>
+        <field name="model">my.crm.opportunity</field>
+
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="customer_id"/>
+            </list>
+        </field>
+    </record>
+
+
+    <!-- Opportunity Form -->
+    <record id="view_opportunity_form" model="ir.ui.view">
+        <field name="name">my.crm.opportunity.form</field>
+        <field name="model">my.crm.opportunity</field>
+
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+
+                    <group>
+                        <field name="name"/>
+                        <field name="customer_id"/>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Opportunity Search View -->
+    <record id="view_opportunity_search" model="ir.ui.view">
+
+        <field name="name">my.crm.opportunity.search</field>
+        <field name="model">my.crm.opportunity</field>
+
+        <field name="arch" type="xml">
+
+            <search>
+
+                <field name="name"/>
+                <field name="customer_id"/>
+
+                <group>
+
+                    <filter
+                        name="group_by_customer"
+                        string="Customer"
+                        context="{'group_by': 'customer_id'}"
+                    />
+
+                </group>
+
+            </search>
+
+        </field>
+
+    </record>
+
+
+    <!-- Opportunity Action -->
+    <record id="action_opportunity" model="ir.actions.act_window">
+        <field name="name">Opportunities</field>
+        <field name="res_model">my.crm.opportunity</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_opportunity_search"/>
+    </record>
+
+
+    <!-- Opportunity Menu -->
+    <menuitem
+        id="menu_opportunity"
+        name="Opportunities"
+        parent="menu_my_crm_root"
+        action="action_opportunity"
+        sequence="20"/>
+
+</odoo>

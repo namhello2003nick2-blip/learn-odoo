@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_my_crm_customer_user,my.crm.customer user,model_my_crm_customer,my_crm.group_my_crm_user,1,1,1,0
+access_my_crm_customer_manager,my.crm.customer manager,model_my_crm_customer,my_crm.group_my_crm_manager,1,1,1,1
+access_my_crm_opportunity_user,my.crm.opportunity user,model_my_crm_opportunity,my_crm.group_my_crm_user,1,1,1,0
+access_my_crm_opportunity_manager,my.crm.opportunity manager,model_my_crm_opportunity,my_crm.group_my_crm_manager,1,1,1,1
