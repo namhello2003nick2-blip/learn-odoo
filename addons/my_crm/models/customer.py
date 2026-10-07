@@ -77,9 +77,19 @@ class Customer(models.Model):
         return super().unlink()
 
     def action_create_test_opportunity(self):
+        stage = self.env["my.crm.stage"].search(
+            [],
+            order="sequence, id",
+            limit=1,
+        )
+
+        if not stage:
+            raise ValidationError("Chưa có Stage nào.")
+
         self.env["my.crm.opportunity"].create({
             "name": "Test Opportunity",
             "customer_id": self.id,
+            "stage_id": stage.id,
         })
 
         return True

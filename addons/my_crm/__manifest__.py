@@ -9,6 +9,7 @@
         "security/ir.model.access.csv",
         "views/customer_views.xml",
         "views/opportunity_views.xml",
+        "views/stage_views.xml",
     ],
     "installable": True,
     "application": True,

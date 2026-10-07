@@ -1,4 +1,4 @@
-from odoo import models, fields, api
+from odoo import models, fields
 
 
 class Opportunity(models.Model):
@@ -16,12 +16,8 @@ class Opportunity(models.Model):
         required=True
     )
 
-    customer_email = fields.Char(
-        string="Customer Email",
-        readonly=True
+    stage_id = fields.Many2one(
+        "my.crm.stage",
+        string="Stage",
+        required=True
     )
-
-    @api.onchange("customer_id")
-    def _onchange_customer_id(self):
-        if self.customer_id:
-            self.customer_email = self.customer_id.email
