@@ -47,6 +47,7 @@
                                 <field name="email"/>
                                 <field name="phone"/>
                                 <field name="user_id"/>
+                                <field name="opportunity_count"/>
                             </group>
                         </page>
 
