@@ -84,6 +84,7 @@
                         <field name="customer_id"/>
                         <field name="stage_id"/>
                         <field name="expected_close_date"/>
+                        <field name="expected_revenue"/>
                         <field name="won_note"/>
                         <field name="won_date"/>
                     </group>

@@ -17,7 +17,7 @@ class OpportunityWonWizard(models.TransientModel):
 
     def action_confirm(self):
         won_stage = self.env["my.crm.stage"].search(
-            [("name", "=", "Won")],
+            [("is_won", "=", True)],
             limit=1
         )
 

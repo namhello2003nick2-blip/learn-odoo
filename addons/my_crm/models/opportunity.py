@@ -35,6 +35,10 @@ class Opportunity(models.Model):
         string="Expected Close Date"
     )
 
+    expected_revenue = fields.Float(
+        string="Expected Revenue"
+    )
+
     def action_mark_as_won(self):
         self.ensure_one()
 
@@ -54,7 +58,7 @@ class Opportunity(models.Model):
 
         if "stage_id" in vals:
             won_stage = self.env["my.crm.stage"].search(
-                [("name", "=", "Won")],
+                [("is_won", "=", True)],
                 limit=1
             )
 
@@ -70,7 +74,7 @@ class Opportunity(models.Model):
         today = fields.Date.today()
 
         lost_stage = self.env["my.crm.stage"].search(
-            [("name", "=", "Lost")],
+            [("is_lost", "=", True)],
             limit=1
         )
 
@@ -79,9 +83,13 @@ class Opportunity(models.Model):
 
         opportunities = self.search([
             ("expected_close_date", "<", today),
-            ("stage_id.name", "not in", ["Won", "Lost"]),
         ])
 
-        opportunities.write({
-            "stage_id": lost_stage.id,
-        })
+        for opportunity in opportunities:
+            if opportunity.stage_id.is_won:
+                continue
+
+            if opportunity.stage_id.is_lost:
+                continue
+
+            opportunity.stage_id = lost_stage.id

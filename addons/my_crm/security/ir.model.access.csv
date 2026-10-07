@@ -7,3 +7,5 @@ access_my_crm_stage_user,my.crm.stage user,model_my_crm_stage,my_crm.group_my_cr
 access_my_crm_stage_manager,my.crm.stage manager,model_my_crm_stage,my_crm.group_my_crm_manager,1,1,1,1
 access_my_crm_opportunity_won_wizard_user,my.crm.opportunity.won.wizard user,model_my_crm_opportunity_won_wizard,my_crm.group_my_crm_user,1,1,1,1
 access_my_crm_opportunity_won_wizard_manager,my.crm.opportunity.won.wizard manager,model_my_crm_opportunity_won_wizard,my_crm.group_my_crm_manager,1,1,1,1
+access_my_crm_dashboard_user,my.crm.dashboard user,model_my_crm_dashboard,my_crm.group_my_crm_user,1,1,1,1
+access_my_crm_dashboard_manager,my.crm.dashboard manager,model_my_crm_dashboard,my_crm.group_my_crm_manager,1,1,1,1

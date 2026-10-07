@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <record id="view_crm_dashboard_form" model="ir.ui.view">
+        <field name="name">my.crm.dashboard.form</field>
+        <field name="model">my.crm.dashboard</field>
+
+        <field name="arch" type="xml">
+            <form string="CRM Dashboard">
+                <sheet>
+
+                    <h1>CRM Dashboard</h1>
+
+                    <group>
+
+                        <group string="Customers">
+
+                            <field
+                                name="total_customers"
+                                readonly="1"
+                            />
+
+                            <button
+                                name="action_open_customers"
+                                type="object"
+                                string="Open Customers"
+                                class="btn-primary"
+                            />
+
+                        </group>
+
+
+                        <group string="Opportunities">
+
+                            <field
+                                name="total_opportunities"
+                                readonly="1"
+                            />
+
+                            <button
+                                name="action_open_all_opportunities"
+                                type="object"
+                                string="Open All"
+                                class="btn-primary"
+                            />
+
+                        </group>
+
+                    </group>
+
+
+                    <separator string="Opportunity Status"/>
+
+
+                    <group>
+
+                        <group>
+
+                            <field
+                                name="open_opportunities"
+                                readonly="1"
+                            />
+
+                            <button
+                                name="action_open_open_opportunities"
+                                type="object"
+                                string="Open Opportunities"
+                            />
+
+                        </group>
+
+
+                        <group>
+
+                            <field
+                                name="won_opportunities"
+                                readonly="1"
+                            />
+
+                            <button
+                                name="action_open_won_opportunities"
+                                type="object"
+                                string="Open Won"
+                            />
+
+                        </group>
+
+
+                        <group>
+
+                            <field
+                                name="lost_opportunities"
+                                readonly="1"
+                            />
+
+                            <button
+                                name="action_open_lost_opportunities"
+                                type="object"
+                                string="Open Lost"
+                            />
+
+                        </group>
+
+                    </group>
+
+
+                    <separator string="Performance"/>
+
+
+                    <group>
+
+                        <field
+                            name="win_rate"
+                            readonly="1"
+                        />
+
+                        <field
+                            name="expected_revenue"
+                            readonly="1"
+                        />
+
+                    </group>
+
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <record id="action_crm_dashboard" model="ir.actions.act_window">
+
+        <field name="name">CRM Dashboard</field>
+
+        <field name="res_model">my.crm.dashboard</field>
+
+        <field name="view_mode">form</field>
+
+        <field name="target">current</field>
+
+    </record>
+
+    <record id="server_action_open_crm_dashboard"
+        model="ir.actions.server">
+
+        <field name="name">Open CRM Dashboard</field>
+
+        <field name="model_id"
+            ref="model_my_crm_dashboard"/>
+
+        <field name="state">code</field>
+
+        <field name="code">
+    action = model.action_open_dashboard()
+        </field>
+
+    </record>
+
+    <menuitem
+        id="menu_crm_dashboard"
+        name="CRM Dashboard"
+        parent="menu_my_crm_root"
+        action="server_action_open_crm_dashboard"
+        sequence="1"
+    />
+</odoo>

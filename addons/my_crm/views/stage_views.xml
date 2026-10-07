@@ -28,6 +28,8 @@
                         <field name="name"/>
                         <field name="sequence"/>
                         <field name="fold"/>
+                        <field name="is_won"/>
+                        <field name="is_lost"/>
                     </group>
 
                     <notebook>
