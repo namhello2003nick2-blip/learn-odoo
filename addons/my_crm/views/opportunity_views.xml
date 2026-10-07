@@ -57,22 +57,41 @@
 
     <!-- Opportunity Form -->
     <record id="view_opportunity_form" model="ir.ui.view">
+
         <field name="name">my.crm.opportunity.form</field>
         <field name="model">my.crm.opportunity</field>
 
         <field name="arch" type="xml">
+
             <form>
+
+                <header>
+
+                    <button
+                        name="action_mark_as_won"
+                        type="object"
+                        string="Mark as Won"
+                        class="btn-primary"
+                    />
+
+                </header>
+
                 <sheet>
 
                     <group>
+
                         <field name="name"/>
                         <field name="customer_id"/>
                         <field name="stage_id"/>
+                        <field name="won_note"/>
                     </group>
 
                 </sheet>
+
             </form>
+
         </field>
+
     </record>
 
     <!-- Opportunity Search View -->

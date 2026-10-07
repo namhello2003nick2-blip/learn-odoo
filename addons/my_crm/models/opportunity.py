@@ -21,3 +21,21 @@ class Opportunity(models.Model):
         string="Stage",
         required=True
     )
+
+    won_note = fields.Text(
+        string="Won Note"
+    )
+
+    def action_mark_as_won(self):
+        self.ensure_one()
+
+        return {
+            "type": "ir.actions.act_window",
+            "name": "Mark Opportunity as Won",
+            "res_model": "my.crm.opportunity.won.wizard",
+            "view_mode": "form",
+            "target": "new",
+            "context": {
+                "default_opportunity_id": self.id,
+            },
+        }

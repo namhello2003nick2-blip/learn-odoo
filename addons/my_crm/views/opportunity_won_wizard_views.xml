@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <record id="view_opportunity_won_wizard_form" model="ir.ui.view">
+
+        <field name="name">my.crm.opportunity.won.wizard.form</field>
+
+        <field name="model">my.crm.opportunity.won.wizard</field>
+
+        <field name="arch" type="xml">
+
+            <form>
+
+                <group>
+
+                    <field name="opportunity_id"/>
+                    <field name="note"/>
+
+                </group>
+
+                <footer>
+
+                    <button
+                        name="action_confirm"
+                        type="object"
+                        string="Confirm"
+                        class="btn-primary"
+                    />
+
+                    <button
+                        string="Cancel"
+                        special="cancel"
+                    />
+
+                </footer>
+
+            </form>
+
+        </field>
+
+    </record>
+
+
+    <record id="action_opportunity_won_wizard" model="ir.actions.act_window">
+
+        <field name="name">Mark Opportunity as Won</field>
+
+        <field name="res_model">my.crm.opportunity.won.wizard</field>
+
+        <field name="view_mode">form</field>
+
+        <field name="target">new</field>
+
+    </record>
+
+</odoo>
