@@ -18,6 +18,12 @@ class Customer(models.Model):
         string="Phone"
     )
 
+    user_id = fields.Many2one(
+        "res.users",
+        string="Salesperson",
+        default=lambda self: self.env.user
+    )
+
     opportunity_ids = fields.One2many(
         "my.crm.opportunity",
         "customer_id",

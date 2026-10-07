@@ -12,6 +12,7 @@
                 <field name="name"/>
                 <field name="email"/>
                 <field name="phone"/>
+                <field name="user_id"/>
             </list>
         </field>
     </record>
@@ -45,6 +46,7 @@
                                 <field name="name"/>
                                 <field name="email"/>
                                 <field name="phone"/>
+                                <field name="user_id"/>
                             </group>
                         </page>
 
