@@ -83,7 +83,9 @@
                         <field name="name"/>
                         <field name="customer_id"/>
                         <field name="stage_id"/>
+                        <field name="expected_close_date"/>
                         <field name="won_note"/>
+                        <field name="won_date"/>
                     </group>
 
                 </sheet>

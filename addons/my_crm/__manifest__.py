@@ -11,6 +11,7 @@
         "views/opportunity_views.xml",
         "views/stage_views.xml",
         "views/opportunity_won_wizard_views.xml",
+        "data/ir_cron.xml",
     ],
     "installable": True,
     "application": True,
